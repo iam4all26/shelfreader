@@ -1,3 +1,4 @@
+
 import 'package:file_picker/file_picker.dart';
 
 class PdfImportService {
@@ -5,7 +6,6 @@ class PdfImportService {
     return FilePicker.pickFiles(
       type: FileType.custom,
       allowedExtensions: <String>['pdf'],
-      allowMultiple: true,
     );
   }
 }
