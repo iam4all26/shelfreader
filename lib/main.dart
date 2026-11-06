@@ -27,8 +27,8 @@ class ShelfReaderApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: AppConfig.primary),
-        scaffoldBackgroundColor: AppConfig.lightBackground,
-        appBarTheme: const AppBarTheme(backgroundColor: AppConfig.lightBackground),
+        scaffoldBackgroundColor: const Color(0xFFF7F3EC),
+        appBarTheme: const AppBarTheme(backgroundColor: Color(0xFFF7F3EC)),
         cardTheme: CardThemeData(elevation: 0, color: Colors.white, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18))),
       ),
       darkTheme: ThemeData(

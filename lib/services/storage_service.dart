@@ -23,9 +23,7 @@ class StorageService {
       if (decoded is! List<dynamic>) return <Book>[];
       final List<Book> books = decoded.whereType<Map<String, dynamic>>().map(Book.fromJson).toList();
       return books.where((Book book) => File(book.pdfPath).existsSync()).toList();
-    } catch (_) {
-      return <Book>[];
-    }
+    } catch (_) { return <Book>[]; }
   }
 
   static Future<void> saveBooks(List<Book> books) async {
@@ -36,14 +34,6 @@ class StorageService {
   static Future<String> importPdf(String sourcePath, String id) async {
     final Directory root = await _root();
     final String target = p.join(root.path, 'books', '$id.pdf');
-    await File(sourcePath).copy(target);
-    return target;
-  }
-
-  static Future<String> importCover(String sourcePath, String id) async {
-    final Directory root = await _root();
-    final String extension = p.extension(sourcePath).isEmpty ? '.jpg' : p.extension(sourcePath);
-    final String target = p.join(root.path, 'covers', '$id$extension');
     await File(sourcePath).copy(target);
     return target;
   }
